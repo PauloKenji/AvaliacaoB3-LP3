@@ -1,0 +1,38 @@
+﻿@model List<Avaliacao3b_LP3.ViewModels.LojaViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Lojas do Shopping</h1>
+    <hr>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">piso</th>
+      <th scope="col">nome</th>
+      <th scope="col">descricao</th>
+      <th scope="col">loja/kiosque</th>
+      <th scope="col">email</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    @foreach (var loja in Model)
+    {
+        <tr>
+            <th scope="row">@loja.Id</th>
+            <td>Piso @loja.Piso</td>
+            <td>@loja.Nome</td>
+            <td class="text-break">@loja.Descricao</td>
+            <td>@loja.Categoria</td>
+            <td>@loja.Email</td>
+        </tr>
+    }
+    
+  </tbody>
+</table>

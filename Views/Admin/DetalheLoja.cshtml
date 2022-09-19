@@ -1,0 +1,24 @@
+@model Avaliacao3b_LP3.ViewModels.LojaViewModel;
+
+@{
+    ViewData["Title"] = "Detalhe da " + @Model.Nome;
+}
+<div class="text-center">
+    <div class="container">
+        <div class="text-left">
+            <h3>@Model.Nome</h3>
+            <hr>
+           
+        </div>
+    </div>    
+</div>
+
+<p>Id: @Model.Id</p>
+<p>Piso @Model.Piso</p>
+<p>Categoria: @Model.Categoria</p>
+<p>Email: @Model.Email</p>
+<p class="text-break">Descriçao: @Model.Descricao</p>
+
+<form action="../Deletar/@Model.Id">
+    <button class="btn btn-danger">Deletar</button>
+</form>

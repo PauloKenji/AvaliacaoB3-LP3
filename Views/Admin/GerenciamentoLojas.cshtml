@@ -1,0 +1,54 @@
+@model List<Avaliacao3b_LP3.ViewModels.LojaViewModel>
+
+@{
+    ViewData["Title"] = "Gerenciamento";
+}
+
+@if(Model.Count == 0)
+{
+    <p>Nenhuma loja cadastrada</p>
+    <form action="CadastrarLoja">
+            <button class="btn btn-primary">Cadastrar lojas</button>
+    </form>
+}
+else
+{
+
+    <h1>Lojas</h1>
+    <p> @Model.Count Lojas cadastradas</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">piso</th>
+            <th scope="col">nome</th>
+            <th scope="col">descricao</th>
+            <th scope="col">loja/kiosque</th>
+            <th scope="col">email</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach (var loja in Model)
+            {
+                <tr>
+                    <th scope="row">@loja.Id</th>
+                    <td>Piso @loja.Piso</td>
+                    <td><a href="/Admin/DetalheLoja/@loja.Id">@loja.Nome</a></td>
+                    <td class="text-break">@loja.Descricao</td>
+                    <td>@loja.Categoria</td>
+                    <td>@loja.Email</td>
+                    <td style="width: 10%;">
+                        <form action="Deletar/@loja.Id">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+   
+}
